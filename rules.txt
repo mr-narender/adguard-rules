@@ -3,7 +3,9 @@
 ||facebook.com^
 ||yandex.net^
 ||revenuecat.com^
-||fromlab.work^
+@@||fromlab.work^
+@@||facebook.com^
+@@||fbcdn.net^
 @@||spotify.com^
 @@||spotifycdn.com^
 @@||audio-ak-spotify-com.akamaized.net^
