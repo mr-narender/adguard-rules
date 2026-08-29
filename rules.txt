@@ -3,6 +3,7 @@
 ||facebook.com^
 ||yandex.net^
 ||revenuecat.com^
+||fromlab.work^
 @@||spotify.com^
 @@||spotifycdn.com^
 @@||audio-ak-spotify-com.akamaized.net^
@@ -44,3 +45,4 @@
 @@||costco.com^
 @@||costco.ca^
 @@||dpm.demdex.net^
+
