@@ -1,50 +1,88 @@
-||ad.doubleclick.net^
-||adservice.google.com^
-||facebook.com^
-||yandex.net^
-||revenuecat.com^
-@@||fromlab.work^
+! Title: Narender's AdGuard Home DNS allowlist
+! Homepage: https://github.com/mr-narender/adguard_allowed_list
+! Registered in AdGuard Home as an *Allowlist* (auto-updates with filter refresh).
+!
+! RULE OF THIS FILE: @@ exception rules ONLY.
+! Never put plain ||block rules here — AdGuard Home INVERTS plain rules inside
+! an allowlist into unblocks (a ||ad.doubleclick.net^ line here would UNBLOCK it).
+! Personal block rules belong in AGH "Custom filtering rules" (user_rules).
+!
+! Refactor 2026-08-30 — audited against active blocklists
+! (AdGuard DNS filter + HaGeZi Multi Pro++ + HaGeZi TIF mini):
+!   moved to user_rules:  ||yandex.net^  ||revenuecat.com^
+!   dropped (redundant):  ||ad.doubleclick.net^  ||adservice.google.com^  (already in blocklists)
+!   dropped (contradiction): ||facebook.com^  (conflicted with @@||facebook.com^)
+!   dropped (shadowed):   @@||edge-chat.instagram.com^  (covered by @@||instagram.com^)
+!   narrowed hole-punchers: akamaized.net (28 TIF entries reopened), googleapis.com (36),
+!                           windows.net (37), synology.me — now scoped to the hosts actually needed
+
+! ────────────────────────────────────────────────────────────────────
+! ACTIVE — currently blocked by the lists; removing these breaks things
+! ────────────────────────────────────────────────────────────────────
+! GeForce Experience login/features (blocked by AdGuard filter + Pro++)
+@@||events.gfe.nvidia.com^
+! push/analytics SDK some apps require to function (blocked by AdGuard filter)
+@@||leanplum.com^
+! Google sign-in flows (blocked by Pro++)
+@@||id.google.com^
+! personal service (blocked by AdGuard filter)
+@@||int.dewrain.site^
+! Adobe consent/login backbone — Desjardins sign-in needs it (demdex.net blocked in 2 lists)
+@@||dpm.demdex.net^
+! Intuit talent assessments (blocked in 2 lists)
+@@||talenteq.intuit.com^
+
+! ────────────────────────────────────────────────────────────────────
+! APP / PLATFORM FAMILIES — broad on purpose, many subdomains blocked
+! ────────────────────────────────────────────────────────────────────
+! Meta family (blocklists carry 9 facebook + 986 fbcdn + 3 instagram subdomain rules)
 @@||facebook.com^
 @@||fbcdn.net^
+@@||instagram.com^
+@@||graph.whatsapp.com^
+! Spotify (17 subdomains blocked)
 @@||spotify.com^
 @@||spotifycdn.com^
+! narrowed from @@||akamaized.net^ — only the Spotify audio CDN host
 @@||audio-ak-spotify-com.akamaized.net^
-@@||akamaized.net^
-@@||azirevpn.net^
-@@||events.gfe.nvidia.com^
-@@||leanplum.com^
-@@||perimeterx.net^
-@@||firebaseinstallations.googleapis.com^
-@@||noip.com^
+! services with blocked subdomains: Bell (8), Desjardins (3), TED (3)
 @@||bell.ca^
-@@||one-disk.synology.me^
-@@||boo.dating^
-@@||googleapis.com^
-@@||id.google.com^
-@@||int.dewrain.site^
-@@||tldrnewsletter.com^
 @@||desjardins.com^
+@@||ted.com^
+! bot-verification used by many shops (66 subdomains blocked); needed for checkouts
+@@||perimeterx.net^
+! WARNING: reopens 7 TIF phishing entries on *.firebaseapp.com — narrow to your app hosts if possible
+@@||firebaseapp.com^
+
+! ────────────────────────────────────────────────────────────────────
+! NARROWED PLATFORM ALLOWS — replace former broad rules
+! ────────────────────────────────────────────────────────────────────
+! narrowed from @@||googleapis.com^ (broad rule reopened 36 telemetry endpoints)
+@@||firebaseinstallations.googleapis.com^
+! narrowed from @@||windows.net^ (broad rule reopened 37 TIF malware blobs); Azure AD sign-in
+@@||login.windows.net^
+! narrowed from @@||synology.me^ — add further NAS hostnames here if you create them
+@@||one-disk.synology.me^
+
+! ────────────────────────────────────────────────────────────────────
+! PRECAUTIONARY — not blocked by current lists; kept to survive list updates
+! ────────────────────────────────────────────────────────────────────
+@@||fromlab.work^
+@@||azirevpn.net^
+@@||noip.com^
+@@||boo.dating^
+@@||boo.world^
+@@||boo-prod.b-cdn.net^
+@@||tldrnewsletter.com^
 @@||eats.sng.link^
-@@||graph.whatsapp.com^
 @@||open.airtelxstream.in^
 @@||t.co^
 @@||redditmail.com^
-@@||boo.world^
-@@||boo-prod.b-cdn.net^
-@@||firebaseapp.com^
 @@||activated.win^
-@@||edge-chat.instagram.com^
-@@||windows.net^
 @@||generativeai.pub^
-@@||instagram.com^
-@@||synology.me^
-@@||ted.com^
-@@||usebraintrust.acemlnb.com^$important
-@@||email-link.adtidy.org^$important
-@@||usebraintrust.activehosted.com^
-@@||talenteq.intuit.com^
 @@||terafileshare.com^
 @@||costco.com^
 @@||costco.ca^
-@@||dpm.demdex.net^
-
+@@||usebraintrust.acemlnb.com^$important
+@@||usebraintrust.activehosted.com^
+@@||email-link.adtidy.org^$important
