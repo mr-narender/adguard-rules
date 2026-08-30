@@ -1,5 +1,5 @@
-! Title: Narender's AdGuard Home DNS allowlist
-! Homepage: https://github.com/mr-narender/adguard_allowed_list
+! Title: Narender's AdGuard Home allowlist (allowlist.txt)
+! Homepage: https://github.com/mr-narender/adguard-rules
 ! Registered in AdGuard Home as an *Allowlist* (auto-updates with filter refresh).
 !
 ! RULE OF THIS FILE: @@ exception rules ONLY.
