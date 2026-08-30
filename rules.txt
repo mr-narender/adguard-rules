@@ -36,9 +36,15 @@
 ! APP / PLATFORM FAMILIES — broad on purpose, many subdomains blocked
 ! ────────────────────────────────────────────────────────────────────
 ! Meta family (blocklists carry 9 facebook + 986 fbcdn + 3 instagram subdomain rules)
+! Core chat/media kept usable for the family. Meta TELEMETRY stays blocked on
+! purpose: no allow below covers whatsapp.net / fbsbx.com, so privatestats.whatsapp.net,
+! dit.whatsapp.net, crashlogs.whatsapp.net, update.fbsbx.com remain filtered.
 @@||facebook.com^
 @@||fbcdn.net^
 @@||instagram.com^
+@@||cdninstagram.com^
+@@||messenger.com^
+@@||whatsapp.com^
 @@||graph.whatsapp.com^
 ! Spotify (17 subdomains blocked)
 @@||spotify.com^
