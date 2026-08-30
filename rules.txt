@@ -35,14 +35,40 @@
 ! ────────────────────────────────────────────────────────────────────
 ! APP / PLATFORM FAMILIES — broad on purpose, many subdomains blocked
 ! ────────────────────────────────────────────────────────────────────
-! Meta family (blocklists carry 9 facebook + 986 fbcdn + 3 instagram subdomain rules)
-! Core chat/media kept usable for the family. Meta TELEMETRY stays blocked on
-! purpose: no allow below covers whatsapp.net / fbsbx.com, so privatestats.whatsapp.net,
-! dit.whatsapp.net, crashlogs.whatsapp.net, update.fbsbx.com remain filtered.
-@@||facebook.com^
+! Meta family — CORE-ONLY policy (2026-08-30):
+! AGH evaluates allowlists before user_rules ($important cannot override them),
+! so the roots facebook.com / instagram.com must NEVER appear here — that would
+! reopen the tracking subdomains (pixel/tr/an/ads/analytics/ep2/badge.facebook.com,
+! graph/badges.instagram.com) which the blocklists + router user_rules keep blocked.
+! Core app/web endpoints are allowed explicitly instead. Telemetry domains
+! (whatsapp.net privatestats/dit/crashlogs, update.fbsbx.com, connect.facebook.net)
+! also stay blocked because nothing below covers them.
+! Facebook web + apps
+@@||www.facebook.com^
+@@||m.facebook.com^
+@@||mbasic.facebook.com^
+@@||graph.facebook.com^
+@@||b-graph.facebook.com^
+@@||api.facebook.com^
+@@||b-api.facebook.com^
+@@||edge-chat.facebook.com^
+@@||edge-mqtt.facebook.com^
+@@||mqtt-mini.facebook.com^
+@@||rupload.facebook.com^
+@@||upload.facebook.com^
+@@||video.facebook.com^
+@@||external.facebook.com^
+@@||l.facebook.com^
+@@||star.facebook.com^
+! Facebook/IG media CDNs (content, not tracking)
 @@||fbcdn.net^
-@@||instagram.com^
 @@||cdninstagram.com^
+! Instagram core (graph.instagram.com deliberately NOT allowed — tracking API)
+@@||www.instagram.com^
+@@||i.instagram.com^
+@@||b.i.instagram.com^
+@@||edge-mqtt.instagram.com^
+! Messenger + WhatsApp (telemetry lives on whatsapp.net, intentionally uncovered)
 @@||messenger.com^
 @@||whatsapp.com^
 @@||graph.whatsapp.com^
