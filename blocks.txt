@@ -1,0 +1,34 @@
+! Title: Narender's AdGuard Home personal blocklist
+! Homepage: https://github.com/mr-narender/adguard_allowed_list
+! Registered in AdGuard Home as a regular *blocklist* (auto-updates on filter
+! refresh / AGH restart — the router reboots nightly at 03:30 IST, so changes
+! here land within a day; use AGH "Custom filtering rules" only for instant one-offs).
+! Counterpart to rules.txt (the allowlist). Git history = change tracking.
+
+! ────────────────────────────────────────────────────────────────────
+! Personal blocks
+! ────────────────────────────────────────────────────────────────────
+||yandex.net^
+||revenuecat.com^
+
+! ────────────────────────────────────────────────────────────────────
+! Meta tracking — belt-and-braces
+! ────────────────────────────────────────────────────────────────────
+! Core FB/IG/WA works via rules.txt (explicit core endpoints only).
+! The public blocklists already carry most of these; the copies here survive
+! future list changes. NOTE: AGH allowlists override everything — broad @@
+! roots (facebook.com / instagram.com) must NEVER enter rules.txt.
+! connect.facebook.net is in NO public list — this file is the only thing
+! blocking the FB third-party pixel.
+! If IG embeds on third-party websites break, remove the graph.instagram.com line.
+||connect.facebook.net^
+||pixel.facebook.com^
+||tr.facebook.com^
+||an.facebook.com^
+||ads.facebook.com^
+||analytics.facebook.com^
+||ep2.facebook.com^
+||badge.facebook.com^
+||badges.instagram.com^
+||graph.instagram.com^
+||graph-fallback.instagram.com^
