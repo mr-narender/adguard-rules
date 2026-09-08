@@ -25,6 +25,8 @@
 @@||leanplum.com^
 ! Google sign-in flows (blocked by Pro++)
 @@||id.google.com^
+! AdMob publisher dashboard only — does not allow ad-serving domains
+@@||admob.google.com^
 ! personal service (blocked by AdGuard filter)
 @@||int.dewrain.site^
 ! Adobe consent/login backbone — Desjardins sign-in needs it (demdex.net blocked in 2 lists)
