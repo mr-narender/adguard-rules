@@ -10,8 +10,13 @@ so every change is versioned, reviewable, and survives router resets.
 | [`allowlist.txt`](allowlist.txt) | **DNS allowlist** — `@@` exception rules only. Unblocks what the public blocklists break (logins, app APIs, Meta *core* endpoints) | 100 |
 | [`blocklist.txt`](blocklist.txt) | **Personal blocklist** — plain `\|\|domain^` rules. Personal bans + Meta tracking belt-and-braces (incl. `connect.facebook.net`, which no public list blocks) | 5 |
 
-Subscribed alongside: AdGuard DNS filter (id 1), HaGeZi Multi Pro++ (id 3),
-HaGeZi TIF mini (id 4). ~614k rules total.
+Shared personal rules are subscribed alongside hardware-sized community profiles:
+
+- **OPNsense (32 GB):** HaGeZi Ultimate + full TIF + Dandelion Sprout Anti-Malware.
+- **GL-MT6000 (1 GB):** HaGeZi Pro++ Mini + TIF Mini.
+
+Overlapping aggregate lists are intentionally avoided; each router uses one HaGeZi
+Multi tier plus TIF and the personal block/allow lists.
 
 ## How updates flow
 
@@ -29,5 +34,5 @@ HaGeZi TIF mini (id 4). ~614k rules total.
   override them. Core endpoints are allowlisted explicitly instead.
 - **Allowlist = `@@` rules only.** AGH inverts plain `||` rules inside an allowlist
   into unblocks.
-- Keep total list size sane on the 1 GB router (~600k rules ≈ 150 MB RSS is the
-  comfortable zone; multi-million-rule stacks OOM-killed AGH in the past).
+- Keep total list size sane on the 1 GB router. Pro++ Mini + TIF Mini is about
+  238k rules and 75–80 MB RSS; multi-million-rule stacks OOM-killed AGH in the past.
