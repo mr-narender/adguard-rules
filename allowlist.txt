@@ -95,11 +95,25 @@
 @@||login.windows.net^
 ! narrowed from @@||synology.me^ — add further NAS hostnames here if you create them
 @@||one-disk.synology.me^
+! Firebase Cloud Messaging — scoped endpoint, not broad googleapis.com
+@@||fcm.googleapis.com^
+
+! Steam / Valve core services
+@@||steamcommunity.com^
+@@||steamgames.com^
+@@||steampowered.com^
+@@||steamstatic.com^
+@@||steamusercontent.com^
+@@||valvecorporation.com^
 
 ! ────────────────────────────────────────────────────────────────────
 ! PRECAUTIONARY — not blocked by current lists; kept to survive list updates
 ! ────────────────────────────────────────────────────────────────────
 @@||fromlab.work^
+! SLR business services
+@@||slrsoft.ca^
+! IPTV service
+@@||eztv4k.cc^
 @@||azirevpn.net^
 @@||noip.com^
 @@||boo.dating^
