@@ -20,12 +20,25 @@ Multi tier plus TIF and the personal block/allow lists.
 
 ## How updates flow
 
-1. Edit + push to `main`
+1. Edit on a task branch based on `main`, then submit and merge a PR into `main`
 2. AdGuard Home refreshes filters every 24 h — and the router reboots nightly at
    03:30 IST, so changes land **within a day** guaranteed
 3. Instant apply: AGH UI → *Filters* → *Check for updates* (or restart AGH)
 4. **Emergencies**: use AGH *Custom filtering rules* (applies on save) — then port
    the rule here and clear the custom box
+
+## Synology DDNS health checklist
+
+- Keep `checkip.synology.com` and its CNAME target `checkip.c2.synology.com` allowed.
+  A DNS answer of `0.0.0.0` or `::` breaks DSM's public-IP detection and leaves DDNS stale.
+- Allow the NAS hostname explicitly (`onevault.synology.me`), not all of `synology.me`.
+- After merging an allowlist change, refresh the subscribed filter and clear the DNS cache.
+- Verify the IP-check endpoint returns the current public IP from the NAS, then refresh
+  DSM DDNS and confirm its status is normal and public DNS publishes that address.
+- For LAN/Tailscale access, resolve the NAS hostname to its reachable private address.
+  Public-IP access from a LAN may require NAT reflection; external access also requires
+  an existing forwarding/firewall path. Do not expose DSM just to repair DDNS.
+- Verify HTTPS hostname/certificate validation and the DSM login page on the final URL.
 
 ## Golden rules (learned the hard way)
 
